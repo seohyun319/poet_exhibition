@@ -20,8 +20,8 @@
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
+            {% comment %} {% block content %}
+            {% endblock %} {% endcomment %}
             </div>
         </div>
     </div>
@@ -29,122 +29,46 @@
 
     <div id="header">
         <div id="MainBan">
-            <h2>
-                자취의 방정식 = f(KimSeoHyun)
-            </h2>
+            <img src="static/mainban.png" alt="banner">
         </div>
     
-        <nav>
-            <ul>
-                <a href="index.html" class="clicked">
-                    <li>Main</li>
-                </a>
-                <a href="profile.html">
-                    <li>Profile</li>
-                </a>
-                <a href="project.html">
-                    <li>Project</li>
-                </a>
-                <a href="contact.html">
-                    <li>Contact</li>
-                </a>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
+        
+          <ul class="navbar-nav mr-auto">
+              <a href="main.html" class="nav-item">
+                  <li>MAIN</li>
+              </a>
+              <a href="/poet" class="nav-item">
+                  <li>공백들</li>
+              </a>
+              <a href="" class="nav-item">
+                  <li>발자취 남기기</li>
+              </a>
+              <a href="" class="nav-item">
+                  <li>다른 작품 보기</li>
+              </a>
+          </ul>
         </nav>
-    </div>
+    </div> 
 
 
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="/"
-        ><img src="/static/kover.png" alt="kover" width="130px"
-      /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          
-
-          <li class="nav-item">
-            <a class="nav-link" href="/feed">피드</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/profile_geo">지도</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/profile_block">프로필</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contents">리뷰등록</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="/profile_block"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              설정
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/login/settings/">더보기</a>
-            </div>
-          </li>
-        </ul>
-        <form
-          class="form-inline my-2 my-lg-0"
-          action=""
-          method="get"
-        >
-          {% csrf_token %}
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="검색어를 입력하세요"
-            aria-label="Search"
-            name="q"
-            value="{{q}}"
-          />
-          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
-            검색
-          </button>
-        </form>
-      </div>
-    </nav>
-
-    <main style="margin-left: 50px; margin-right: 50px; margin-top: 80px">
-      {% block content %} {% endblock %}
+    <main style="margin-top: 80px; margin-left: 50px; margin-right: 50px; ">
+      {% block content %} 
+      {% endblock %}
     </main>
 
-    <footer>
-      {% block footer %}
-      <div class="footer">
-        <small> 2021 시오름 시화전<br />
-            &copy; 詩오름 All rights reserved <br />
-            &copy; 숙명여자대학교 한국어문학부 19학번 김서현
-        </small>
-        
-      </div>
-
-      {% endblock %}
-    </footer>
-
-
-
-
 </body>
+<footer>
+{% block footer %}
+<div class="footer">
+  <small> 2021 시오름 시화전<br />
+      &copy; 詩오름 All rights reserved <br />
+      &copy; 숙명여자대학교 한국어문학부 19학번 김서현
+  </small>
+  
+</div>
+
+{% endblock %}
+</footer>
+
 </html>
