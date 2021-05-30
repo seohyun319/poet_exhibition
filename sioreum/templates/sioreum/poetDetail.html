@@ -1,0 +1,12 @@
+{% extends 'sioreum/base.html' %}
+
+{% block content %}
+    
+    <div>{{ poet.title }}</div>
+    <div>{{ poet.author }}</div>
+    <div>{{ poet.text|linebreaksbr }}</div>
+    <div>{{ poet.thumbnail }}</div>
+    <div>{{ poet.backgroundImg }}</div>
+
+    
+{% endblock %}

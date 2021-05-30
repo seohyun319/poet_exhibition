@@ -1,0 +1,12 @@
+{% extends 'sioreum/base.html' %}
+
+{% block content %}
+hello
+    {% for poet in poets %}
+    tisd
+        <h1><a href="{% url 'poetDetail' pk=poet.pk %}">{{ poet.title }}</a></h1>
+        <div>{{ poet.author }}</div>
+        <div>{{ poet.thumbnail }}</div>
+
+    {% endfor %}
+{% endblock %}
