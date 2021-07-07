@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
+    {% comment %}<link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
         crossorigin="anonymous"
         />
-    <link 
+     <link 
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
-        crossorigin="anonymous">
+        crossorigin="anonymous"> {% endcomment %}
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> 
+
     <title>시화전</title>
 </head>
 <body>
@@ -29,27 +32,31 @@
 
     <div id="header">
         <div id="MainBan">
-            <img src="static/mainban.png" alt="banner">
+            <img src="static/mainban.png" alt="banner" style="width: 100%;">
         </div>
-    
-        <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
-        
-          <ul class="navbar-nav mr-auto">
-              <a href="main.html" class="nav-item">
-                  <li>MAIN</li>
-              </a>
-              <a href="/poet" class="nav-item">
-                  <li>공백들</li>
-              </a>
-              <a href="" class="nav-item">
-                  <li>발자취 남기기</li>
-              </a>
-              <a href="" class="nav-item">
-                  <li>다른 작품 보기</li>
-              </a>
-          </ul>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" >
+            <a class="navbar-brand" href="#">시오름</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">MAIN <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/poet">공백들</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">발자취 남기기</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">다른 작품 보기</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-    </div> 
+    </div>
 
 
     <main style="margin-top: 80px; margin-left: 50px; margin-right: 50px; ">
@@ -57,15 +64,19 @@
       {% endblock %}
     </main>
 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+ 
+
 </body>
 <footer>
 {% block footer %}
-<div class="footer">
+<div class="footer bg-dark text-light pl-5 pt-2 pb-2">
   <small> 2021 시오름 시화전<br />
-      &copy; 詩오름 All rights reserved <br />
+      &copy; 詩오름 All rights reserved 
       &copy; 숙명여자대학교 한국어문학부 19학번 김서현
   </small>
-  
 </div>
 
 {% endblock %}
