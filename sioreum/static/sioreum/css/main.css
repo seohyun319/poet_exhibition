@@ -1,0 +1,27 @@
+.mainBox {
+    border-color: blue;
+    border-style:solid;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px 60px;     
+    text-align: center;
+    min-width: 440px;
+}
+/* 
+.tx {
+    text-align: center;
+} */
+
+.btn {
+    background-color: #fff6f2;
+    border-color: #ffcfbc;
+    border-width: 3px;
+    border-radius: 30px;
+    border-style:solid;
+    font-weight: 800;
+    margin: 10px 15px;
+    padding: 15px 0px;
+    width: 280px;
+    text-align: center;
+    cursor:pointer;
+}

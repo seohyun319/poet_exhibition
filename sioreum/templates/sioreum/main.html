@@ -1,14 +1,18 @@
 {% extends 'sioreum/base.html' %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'sioreum/css/main.css' %}">
+{% endblock %}
 
 {% block content %}
 <title>메인 페이지</title>
-    <div>
-        <h1>공백空白</h1>
+    <div class="mainBox tx">
+        <h1 class="">공백 空白</h1>
         <p>공백 주제로 누군가가 발제문이나 소개글 등등 써주시면 좋을 듯 합니다 ㅎㅁㅎ 발제문발제문</p>
-        <button>시화전 보러가기</button>
+        <button class="btn">시화전 보러가기</button>
     </div>
 
-    <div>
+    <div class="mainBox">
         <div class="article">
             <div class="left5">
                 <h3 class="">
@@ -54,7 +58,7 @@
         </div>
     </div>
 
-    <div class="">
+    <div class="mainBox">
         <p>시화전을 보신 이후에 방명록을 남겨보는 것은 어떨까요?
             발자취를 남겨 주시면 추첨을 통해 시오름 시 굿즈 선물을 드립니다.
         </p>
@@ -72,12 +76,12 @@
                     </div>            
             </div>
         </div>
-        <button>발자취 남기러 가기</button>
+        <button class="btn">발자취 남기러 가기</button>
     </div>
 
-    <div class="">
+    <div class="mainBox">
         <p>‘공백’이라는 주제로 만들어진 시화전의 주제시 이외에 더 많은 시를 보고 싶다면</p>
-        <button>직접 쓴 다른 시 보러 가기</button>
+        <button class="btn">직접 쓴 다른 시 보러 가기</button>
     </div>
 
 
