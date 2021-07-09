@@ -1,9 +1,13 @@
 {% extends 'sioreum/base.html' %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'sioreum/css/poetList.css' %}">
+{% endblock %}
 
 {% block content %}
 <title>공백들 : 시화전 시 목록</title>
     {% for poet in poets %}
-    tisd
+    
         <h1><a href="{% url 'poetDetail' pk=poet.pk %}">{{ poet.title }}</a></h1>
         <div>{{ poet.author }}</div>
         <div>{{ poet.thumbnail }}</div>

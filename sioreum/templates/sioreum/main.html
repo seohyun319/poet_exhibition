@@ -6,6 +6,7 @@
 
 {% block content %}
 <title>메인 페이지</title>
+<div class="outContainer">
     <div class="mainBox tx">
         <h1 class="">공백 空白</h1>
         <p>공백 주제로 누군가가 발제문이나 소개글 등등 써주시면 좋을 듯 합니다 ㅎㅁㅎ 발제문발제문</p>
@@ -13,9 +14,9 @@
     </div>
 
     <div class="mainBox">
-        <div class="article">
-            <div class="left5">
-                <h3 class="">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-sm-1">
+            <div class="col">
+                <h3 class="PrjContent">
                     詩오름이란? 
                 </h3>
                 <div class="PrjDrop">
@@ -36,7 +37,7 @@
                 </div>
             </div>
                 
-            <div class="right5">
+            <div class="col">
                 <h3 class="PrjContent">
                     시화전이란?
                 </h3>
@@ -84,5 +85,5 @@
         <button class="btn">직접 쓴 다른 시 보러 가기</button>
     </div>
 
-
+</div>
 {% endblock %}

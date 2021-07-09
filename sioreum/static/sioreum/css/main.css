@@ -1,3 +1,10 @@
+.outContainer {
+    display: flex;
+    flex-direction : column;
+	justify-content : space-between;
+	align-items : center;
+}
+
 .mainBox {
     border-color: blue;
     border-style:solid;
@@ -6,6 +13,7 @@
     padding: 20px 60px;     
     text-align: center;
     min-width: 440px;
+    max-width: 700px;
 }
 /* 
 .tx {
@@ -24,4 +32,34 @@
     width: 280px;
     text-align: center;
     cursor:pointer;
+}
+
+
+
+.PrjContent {
+    border-color: #92a8c9; border-style:solid;
+    border-radius: 10px;
+    padding: 4px 20px; 
+    color: #92a8c9;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.PrjDrop {
+    border-color: #92a8c9; border-style:solid;
+    border-radius: 10px;
+    padding: 4px 10px; 
+    color: black;
+    overflow: hidden;
+    margin: 5px;
+}
+
+input[id*="PrjDrop"] {
+    display:none;
+}
+
+input[id*="PrjDrop"] + label {
+    display:block;
+    padding:3px;
+    cursor: pointer;
 }
