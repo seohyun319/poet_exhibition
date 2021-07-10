@@ -6,8 +6,9 @@
 }
 
 .mainBox {
-    border-color: blue;
+    border-color: #ffffff;
     border-style:solid;
+    background-color: #FFFFF9;
     margin: 20px;
     border-radius: 10px;
     padding: 20px 60px;     

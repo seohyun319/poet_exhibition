@@ -32,11 +32,11 @@
 
 
     <div id="header">
-        <div id="MainBan">
-            <img src="static/mainban.png" alt="banner" style="width: 100%;">
+        <div id="MainBan" class="pt-4">
+            <img src="static/sioreum/img/mainban.png" alt="banner" style="width: 100%;">
         </div>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" >
-            <a class="navbar-brand" href="#">시오름</a>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" >
+            <a class="navbar-brand" href="/">시오름</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -60,7 +60,7 @@
     </div>
 
 
-    <main style="margin-top: 80px; margin-left: 50px; margin-right: 50px; ">
+    <main class="">
       {% block content %} 
       {% endblock %}
     </main>
