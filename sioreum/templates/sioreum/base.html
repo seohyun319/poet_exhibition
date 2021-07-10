@@ -20,16 +20,7 @@
     {% endblock %}
     <title>시화전</title>
 </head>
-<body>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-            {% comment %} {% block content %}
-            {% endblock %} {% endcomment %}
-            </div>
-        </div>
-    </div>
-
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 
     <div id="header">
         <div id="MainBan" class="pt-4">
@@ -73,7 +64,6 @@
 </body>
 <footer class="footer mt-auto">
 {% block footer %}
-<!-- <div style="position: absolute; bottom: 0px;"> -->
 <div class="bg-dark text-light pl-5 pt-2 pb-2" >
   <small> 2021 시오름 시화전 &emsp;&emsp;&emsp;&emsp;
       &copy; 詩오름 All rights reserved <br>
