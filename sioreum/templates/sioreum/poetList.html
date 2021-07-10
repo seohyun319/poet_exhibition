@@ -8,7 +8,7 @@
 <title>공백들 : 시화전 시 목록</title>
     {% for poet in poets %}
     <div class="text-center" >
-        <div class="rounded float-left img-thumbnail img-fluid " 
+        <div class="rounded img-thumbnail img-fluid float-left" 
         style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}'); 
             width:300px; height:300px; " 
             > 
@@ -19,5 +19,6 @@
     {% comment %} <img style="float: left;" src="/static/sioreum/img{{ poet.thumbnail.url }}" alt="thumbnail" width="150px" height="150px">  {% endcomment %}
     
     {% endfor %}
+    <div style="clear:both;"><br/></div>
 {% endblock %}
 
