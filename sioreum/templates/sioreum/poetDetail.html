@@ -6,12 +6,11 @@
 
 {% block content %}
 <title>시 자세히 보기</title>
-
+<div style="background-image: url('/static/sioreum/img{{ poet.backgroundImg.url }}'); 
+        width: 100%; height: 100%;">
     <div>{{ poet.title }}</div>
     <div>{{ poet.author }}</div>
     <div>{{ poet.text|linebreaksbr }}</div>
-    <div>{{ poet.thumbnail }}</div>
-    <div>{{ poet.backgroundImg }}</div>
-
-    
+    <!-- <img src="/static/sioreum/img{{ poet.backgroundImg.url }}" alt="backgroundImg" width="100%" height="100%"> -->
+</div>
 {% endblock %}

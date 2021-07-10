@@ -7,10 +7,15 @@
 {% block content %}
 <title>공백들 : 시화전 시 목록</title>
     {% for poet in poets %}
-    
-        <h1><a href="{% url 'poetDetail' pk=poet.pk %}">{{ poet.title }}</a></h1>
-        <div>{{ poet.author }}</div>
-        <div>{{ poet.thumbnail }}</div>
-
+    <div class="" style="overflow:hidden;">
+        <li class="" 
+        {% comment %} style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}'); 
+            width:300px; height:300px; float:left;" {% endcomment %}
+            >
+            <h1><a href="{% url 'poetDetail' pk=poet.pk %}">{{ poet.title }}</a></h1>
+            <div>{{ poet.author }}</div>
+        </li>
+    </div>
+        {% comment %} <img src="/static/sioreum/img{{ poet.thumbnail.url }}" alt="thumbnail" width="150px" height="150px"> {% endcomment %}
     {% endfor %}
 {% endblock %}

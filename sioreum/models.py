@@ -7,8 +7,8 @@ class Post(models.Model):
     author = models.CharField(max_length=200, verbose_name="시 쓴 사람")
     title = models.CharField(max_length=200, verbose_name="시 제목")
     text = models.TextField(verbose_name="시 본문")
-    thumbnail = models.ImageField(upload_to='thumbnailImages/',blank=True, null=True)
-    backgroundImg = models.ImageField(upload_to='Images/',blank=True, null=True)
+    thumbnail = models.ImageField(upload_to='sioreum/static/sioreum/img/thumbnailImages/',blank=True, null=True)
+    backgroundImg = models.ImageField(upload_to='sioreum/static/sioreum/img/Images/',blank=True, null=True)
     
     def __str__(self):
         return self.title
