@@ -6,19 +6,29 @@
 
 {% block content %}
 <title>공백들 : 시화전 시 목록</title>
-    {% for poet in poets %}
-    <div class="text-center" >
-        <div class="rounded img-thumbnail img-fluid float-left" 
-        style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}'); 
-            width:300px; height:300px; " 
-            > 
-            <h1><a href="{% url 'poetDetail' pk=poet.pk %}">{{ poet.title }}</a></h1>
-            <div>{{ poet.author }}</div>
-        </div> 
+    <div id="MainBan" class="pt-4">
+        <a href="/"><img src="static/sioreum/img/mainban.png" alt="banner" style="width: 100%;"></a>
     </div>
-    {% comment %} <img style="float: left;" src="/static/sioreum/img{{ poet.thumbnail.url }}" alt="thumbnail" width="150px" height="150px">  {% endcomment %}
-    
-    {% endfor %}
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            {% for poet in poets %}
+            <div class="text-center m-2" >
+                <a href="{% url 'poetDetail' pk=poet.pk %}">
+                    <div class="rounded img-thumbnail img-fluid float-left text-light p-1 mx-auto" 
+                    style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}'); 
+                        width:250px; height:250px; background-size:cover;">
+                        <div class="bg-dark" style="opacity: 50%; height:240px; ">
+                            <h3 class="pt-5">{{ poet.title }}</h3>
+                            <div class="pt-3">{{ poet.author }}</div>
+                        </div> 
+                    </div> 
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% comment %} <img style="float: left;" src="/static/sioreum/img{{ poet.thumbnail.url }}" alt="thumbnail" width="150px" height="150px">  {% endcomment %}
+        
+    </div>
     <div style="clear:both;"><br/></div>
 {% endblock %}
 

@@ -6,11 +6,14 @@
 
 {% block content %}
 <title>시 자세히 보기</title>
-<div style="background-image: url('/static/sioreum/img{{ poet.backgroundImg.url }}'); 
-        width: 100vh; height: 100vh;">
-    <div>{{ poet.title }}</div>
-    <div>{{ poet.author }}</div>
-    <div>{{ poet.text|linebreaksbr }}</div>
-    <!-- <img src="/static/sioreum/img{{ poet.backgroundImg.url }}" alt="backgroundImg" width="100%" height="100%"> -->
+<div class="mx-auto" 
+    style="background-image: url('/static/sioreum/img{{ poet.backgroundImg.url }}'); 
+        width: 100vh; height: 150vh; margin: 100px 0; background-size:cover;">
+    <div class="m-5 pt-5 ">
+        <h3 class="text-center">{{ poet.title }}</h3>
+        <div class="text-right">{{ poet.author }}</div> <br/><br/>
+        <div class="">{{ poet.text|linebreaksbr }}</div>
+        <!-- <img src="/static/sioreum/img{{ poet.backgroundImg.url }}" alt="backgroundImg" width="100%" height="100%"> -->
+    </div>
 </div>
 {% endblock %}
