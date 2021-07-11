@@ -9,7 +9,9 @@ class Post(models.Model):
     text = models.TextField(verbose_name="시 본문")
     thumbnail = models.ImageField(upload_to='sioreum/static/sioreum/img/thumbnailImages/',blank=True, null=True)
     backgroundImg = models.ImageField(upload_to='sioreum/static/sioreum/img/Images/',blank=True, null=True)
-    
+    text_color = models.BooleanField(default=False, verbose_name="글씨 흰색 여부")
+    background = models.BooleanField(default=False, verbose_name="검정 배경 적용 여부")
+
     def __str__(self):
         return self.title
 
