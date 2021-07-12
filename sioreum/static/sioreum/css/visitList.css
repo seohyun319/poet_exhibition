@@ -10,14 +10,13 @@
 }
 
 .mainbox {
-    margin: 120px 0 0 0;
+    margin: 80px 0 0 0;
 }
 
 .info {
     border-color: #bcdfff;
     border-style:solid;
     border-radius: 10px;
-    
 }
 
 .card {
@@ -35,6 +34,11 @@
 
 .flower {
     height:40px; width:60px; object-fit: contain;
+}
+
+.page-item:last-child .page-link,
+.page-item:first-child .page-link{
+    border-radius: 50px;
 }
 
 .page-link {
