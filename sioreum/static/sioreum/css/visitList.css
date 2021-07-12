@@ -1,0 +1,27 @@
+.mainbox {
+    margin: 120px 0;
+}
+
+.info {
+    border-color: #bcdfff;
+    border-style:solid;
+    border-radius: 10px;
+    
+}
+
+.card {
+    background-color:#fff5f5;  
+            height: 200px; width: 300px;
+}
+    
+.overflow-auto {
+    height: 130px;
+} 
+    
+.author {
+    color: #973bff9a;
+}
+
+.flower {
+    height:40px; width:60px; object-fit: contain;
+}

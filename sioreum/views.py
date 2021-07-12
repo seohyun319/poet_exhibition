@@ -17,8 +17,8 @@ def poetDetail(request,pk):
 
 def visitList(request):
     visits = VisitForm.objects.all().order_by('created_date')
-    paginator = Paginator(visits, 2)
     page = request.GET.get('page', 1)
+    paginator = Paginator(visits, 8)
     try:
         visits = paginator.get_page(page)
     except PageNotAnInteger:

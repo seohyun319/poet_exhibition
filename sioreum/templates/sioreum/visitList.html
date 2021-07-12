@@ -1,17 +1,25 @@
 {% extends 'sioreum/base.html' %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'sioreum/css/visitList.css' %}">
+{% endblock %}
 
 {% block content %}
+<div class="mainbox">
 <title>방명록</title>
+    <div class="info col-8 offset-2 p-2 mb-4">방명록을 남겨주세요. <br/>
+    전화번호를 남겨주신 분에 한하여 추첨을 통해 시오름 굿즈를 배송해 드립니다.
+    전화번호는 배송 후 폐기됩니다.
+    </div>
 {% comment %} <form action=""></form> {% endcomment %}
-<div class="" style="margin: 100px 0;">
     <div class="row justify-content-center">
         {% for visit in visits %}
-            <div class="m-3 p-3 card " style="background-color:#fff0f0;  
-            height: 200px; width: 300px; ">
-                <div class="overflow-auto" style="height: 120px;">{{ visit.text }}</div> <br/>
-                <div class="row row-cols-2 px-3">
-                    <div style="color: #973bff9a;">{{ visit.author }}</div>
-                    <div class="text-right text-secondary">{{ visit.created_date|date:"y.m.d"}}</div>
+            <div class="m-3 px-3 pt-3 card">
+                <div class="overflow-auto">{{ visit.text }}</div>
+                <div class="row row-cols-3 px-3 mt-2">
+                    <div class="mt-2 author">{{ visit.author }}</div>
+                    <img src="static/sioreum/img/flower.png" class="flower" alt="">
+                    <div class="mt-2 text-right text-secondary">{{ visit.created_date|date:"y.m.d"}}</div>
                 </div>
             </div>
         {% endfor %}
@@ -23,9 +31,11 @@
         {% if visits.has_other_pages %}
         <ul class="pagination justify-content-center">
             {% if visits.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo;</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ visits.previous_page_number }}">&lsaquo;</a></li>
             {% else %}
             <li class="page-item disabled page-link text-dark"><span>&laquo;</span></li>
+            <li class="page-item disabled page-link text-dark"><span>&lsaquo;</span></li>
             {% endif %}
             {% for i in visits.paginator.page_range %}
                 {% if visits.number == i %}
@@ -35,8 +45,10 @@
                 {% endif %}
             {% endfor %}
             {% if visits.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ visits.next_page_number }}">&rsaquo;</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ visits.paginator.num_pages }}">&raquo;</a></li>
             {% else %}
+            <li class="page-item disabled page-link text-dark"><span>&rsaquo;</span></li>
             <li class="page-item disabled page-link text-dark"><span>&raquo;</span></li>
             {% endif %}
         </ul>
