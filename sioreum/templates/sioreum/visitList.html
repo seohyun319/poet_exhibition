@@ -3,12 +3,22 @@
 {% block content %}
 <title>방명록</title>
 {% comment %} <form action=""></form> {% endcomment %}
-<div style="margin: 100px 0;">
-    {% for visit in visits %}
-        <div>{{ visit.author }}</div>
-        <div>{{ visit.created_date}}</div>
-        <div>{{ visit.text }}</div>
-    {% endfor %}
+<div class="container" style="margin: 100px 0;">
+    <div class="row justify-content-center">
+        {% for visit in visits %}
+            <div class="m-3 p-3 card " style="background-color:#fff0f0;  
+            height: 300px; width: 300px; ">
+                <div style="overflow: hidden;">{{ visit.text }}</div> <br/>
+                <div class="row row-cols-2 px-3">
+                    <div style="color: #973bff9a;">{{ visit.author }}</div>
+                    <div class="text-right text-secondary">{{ visit.created_date|date:"y.m.d"}}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
+
+<!-- TODO : scroll, pagination -->
+공백 떡메 컨셉으로 
 
 {% endblock %}
