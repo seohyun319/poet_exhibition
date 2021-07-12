@@ -1,0 +1,44 @@
+* {
+    font-family: 'RIDIBatang';
+}
+
+@font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* poet list */
+.mainban {
+    width: 100%;
+}
+
+.img-thumbnail {
+    /* background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}');  */
+    width:250px; height:250px; background-size:cover;
+}
+
+.backgrd {
+    background-color: rgba(0, 0, 0, 0.3); height:240px;
+}
+
+.end {
+    clear:both;   
+}
+
+
+
+/* poet detail */
+.img-bg {
+    width: 90vh; height: 165vh;  margin: 100px 0; 
+    background-size:cover; padding-top:6px;
+}
+
+.backgrd2 {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backgrd3 {
+    background-color: rgba(255, 255, 255, 0.3);
+}

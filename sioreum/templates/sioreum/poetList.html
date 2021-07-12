@@ -1,13 +1,13 @@
 {% extends 'sioreum/base.html' %}
 {% load static %}
 {% block extra_head %}
-    <link rel="stylesheet" href="{% static 'sioreum/css/poetList.css' %}">
+    <link rel="stylesheet" href="{% static 'sioreum/css/poet.css' %}">
 {% endblock %}
 
 {% block content %}
 <title>공백들 : 시화전 시 목록</title>
     <div id="MainBan" class="pt-4">
-        <a href="/"><img src="static/sioreum/img/mainban.png" alt="banner" style="width: 100%;"></a>
+        <a href="/"><img src="static/sioreum/img/mainban.png" alt="banner"></a>
     </div>
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
@@ -15,9 +15,8 @@
             <div class="text-center m-2" >
                 <a href="{% url 'poetDetail' pk=poet.pk %}">
                     <div class="rounded img-thumbnail img-fluid float-left text-light p-1 mx-auto" 
-                    style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}'); 
-                        width:250px; height:250px; background-size:cover;">
-                        <div class="" style="background-color: rgba(0, 0, 0, 0.3); height:240px; ">
+                    style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}');">
+                        <div class="backgrd" >
                             <h3 class="pt-5">{{ poet.title }}</h3>
                             <div class="pt-3">{{ poet.author }}</div>
                         </div> 
@@ -26,9 +25,7 @@
             </div>
             {% endfor %}
         </div>
-        {% comment %} <img style="float: left;" src="/static/sioreum/img{{ poet.thumbnail.url }}" alt="thumbnail" width="150px" height="150px">  {% endcomment %}
-        
     </div>
-    <div style="clear:both;"><br/></div>
+    <div class="end"><br/></div>
 {% endblock %}
 

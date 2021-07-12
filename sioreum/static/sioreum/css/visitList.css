@@ -36,3 +36,14 @@
 .flower {
     height:40px; width:60px; object-fit: contain;
 }
+
+.page-link {
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    margin: 0 2px;
+}
+
+.bg-blue {
+    background-color: #dbe5ff;
+}
