@@ -1,6 +1,6 @@
 from typing import FrozenSet
 from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, VisitForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -16,7 +16,7 @@ def poetDetail(request,pk):
     return render(request, 'sioreum/poetDetail.html', {'poet': poet})
 
 def visitList(request):
-    visits = VisitForm.objects.all().order_by('created_date')
+    visits = VisitForm.objects.all().order_by('-created_date')
     page = request.GET.get('page', 1)
     paginator = Paginator(visits, 8)
     try:
@@ -28,3 +28,14 @@ def visitList(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         visits = paginator.page(paginator.num_pages)
     return render(request, 'sioreum/visitList.html', {'visits':visits})
+
+def create(request):
+    if request.method == 'POST':
+        form = VisitForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            return redirect('sioreum:visitor')
+    else: 
+        form = VisitForm()
+        ctx = {'form':form}
+        return render(request, 'sioreum/visitList.html', ctx)
