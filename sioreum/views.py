@@ -16,4 +16,4 @@ def poetDetail(request,pk):
 
 def visitList(request):
     visits = VisitForm.objects.all().order_by('created_date')
-    return render(request, 'sioreum/visitList.html', {})
+    return render(request, 'sioreum/visitList.html', {'visits':visits})

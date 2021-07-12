@@ -2,11 +2,13 @@
 
 {% block content %}
 <title>방명록</title>
-<form action=""></form>
-
+{% comment %} <form action=""></form> {% endcomment %}
+<div style="margin: 100px 0;">
     {% for visit in visits %}
         <div>{{ visit.author }}</div>
         <div>{{ visit.created_date}}</div>
         <div>{{ visit.text }}</div>
     {% endfor %}
+</div>
+
 {% endblock %}
