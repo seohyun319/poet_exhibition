@@ -32,35 +32,35 @@ def visitList(request):
         visits = paginator.page(paginator.num_pages)
     return render(request, 'sioreum/visitList.html', {'visits':visits})
 
-def create(request):
-    if request.method == 'POST':
-        form = VisitForm(request.POST)
-        if form.is_valid():
-            post = form.save()
-            return redirect('sioreum:visitor')
-    else: 
-        form = VisitForm()
-        ctx = {'form':form}
-        return render(request, 'sioreum/visitList.html', ctx)
+# def create(request):
+#     if request.method == 'POST':
+#         form = VisitForm(request.POST)
+#         if form.is_valid():
+#             post = form.save()
+#             return redirect('sioreum:visitor')
+#     else: 
+#         form = VisitForm()
+#         ctx = {'form':form}
+#         return render(request, 'sioreum/visitList.html', ctx)
 
     
-def update(request, pk):
-    visits = get_object_or_404(visitList, id=pk)
-    if request.method == 'POST':
-        form = VisitForm(request.POST, instance=visits)
-        if form.is_valid():
-            post = form.save()
-            return redirect('sioreum:visitor', pk)
-    else:
-        form = VisitForm(instance=post)
-        ctx = {'form': form}
-        return render(request, 'sioreum/visitList.html', ctx)
+# def update(request, pk):
+#     visits = get_object_or_404(visitList, id=pk)
+#     if request.method == 'POST':
+#         form = VisitForm(request.POST, instance=visits)
+#         if form.is_valid():
+#             post = form.save()
+#             return redirect('sioreum:visitor', pk)
+#     else:
+#         form = VisitForm(instance=post)
+#         ctx = {'form': form}
+#         return render(request, 'sioreum/visitList.html', ctx)
 
 
-def delete(request, pk):
-    visits = get_object_or_404(visitList, pk=pk)
-    if request.method == 'GET':
-        return redirect('sioreum:visitor', visits.id)
-    elif request.method == 'POST':
-        visits.delete()
-        return redirect('sioreum:visitor')
+# def delete(request, pk):
+#     visits = get_object_or_404(visitList, pk=pk)
+#     if request.method == 'GET':
+#         return redirect('sioreum:visitor', visits.id)
+#     elif request.method == 'POST':
+#         visits.delete()
+#         return redirect('sioreum:visitor')

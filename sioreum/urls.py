@@ -6,7 +6,7 @@ urlpatterns = [
     path('poet', views.poetList, name='poetList'),
     path('poet/<int:pk>/', views.poetDetail, name='poetDetail'),
     path('visitor', views.visitList, name='visitList'),
-    path('visitor/write/', views.create, name='createVisit'),
-    path('visitor/edit/<int:pk>/', views.update, name='createVisit'),
-    path('visitor/delete/<int:pk>/', views.delete, name='createVisit'),
+    # path('visitor/write/', views.create, name='createVisit'),
+    # path('visitor/edit/<int:pk>/', views.update, name='createVisit'),
+    # path('visitor/delete/<int:pk>/', views.delete, name='createVisit'),
 ]

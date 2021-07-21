@@ -20,7 +20,7 @@
 }
 
 .card {
-    background-color:#fff5f5;  
+    background-color:red;  
             height: 200px; width: 300px;
 }
     
@@ -33,12 +33,12 @@
 }
 
 .flower {
-    height:40px; width:60px; object-fit: contain;
+    height:40px; width:30px; object-fit: contain;
 }
 
-textarea {
-    resize:none; 
-    /* TODO overflow, resize ... */
+.textContent {
+    resize:none; width: 30px; 
+    overflow:hidden; overflow-wrap:break-word; overflow-y:scroll;
 }
 
 .page-item:last-child .page-link,
