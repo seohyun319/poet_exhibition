@@ -1,8 +1,10 @@
 from typing import FrozenSet
+from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, VisitForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import json
 
 def main(request):
     return render(request, 'sioreum/main.html', {})
@@ -32,7 +34,13 @@ def visitList(request):
         visits = paginator.page(paginator.num_pages)
     return render(request, 'sioreum/visitList.html', {'visits':visits})
 
-
+def visitCreate(request):
+    req = json.loads(request.body)
+    content = req['content']
+    if content:
+        visitNew = VisitForm(text=content)
+        visitNew.save()
+    return JsonResponse({'content':content})
 
 # def create(request):
 #     if request.method == 'POST':

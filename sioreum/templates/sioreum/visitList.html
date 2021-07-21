@@ -15,11 +15,11 @@
     <div class="row justify-content-center">
         {% if visits.number == 1 %}
             <div class="m-3 px-3 pt-3 card">
-                <textarea class="textContent" name="" id="" rows="5" placeholder="내용을 적어주세요."></textarea>
+                <textarea class="visitContent" name="" id="" rows="5" placeholder="내용을 적어주세요."></textarea>
                 <div class="row row-cols-3 px-3 mt-2">
                     <input class="mt-2 author" type="text" placeholder="이름">
                     <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                    <button class="mt-2 text-right" type="submit">{% csrf_token %}올리기</button>
+                    <button class="mt-2 text-right" type="submit" onclick="onClick()">{% csrf_token %}올리기</button>
                 </div>
             </div>
         {% else %}        
@@ -77,4 +77,17 @@
 {% endblock %}
 
 
-<script src="static/scripts/main.js"></script>
+{% comment %} <script src="static/scripts/main.js"></script> {% endcomment %}
+<script>
+    const request = new XMLHttpRequest();
+
+    const onClick = () => {
+        const textarea = document.querySelector(`textarea`);
+        const content = textarea.value;
+        const url = "/visitor/write/";
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send(JSON.stringify({ content }));
+        textarea.value = "";
+    };
+</script>

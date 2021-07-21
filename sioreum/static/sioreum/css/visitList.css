@@ -36,7 +36,7 @@
     height:40px; width:30px; object-fit: contain;
 }
 
-.textContent {
+.visitContent {
     resize:none; width: 30px; 
     overflow:hidden; overflow-wrap:break-word; overflow-y:scroll;
 }
