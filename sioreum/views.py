@@ -18,7 +18,10 @@ def poetDetail(request,pk):
 def visitList(request):
     visits = VisitForm.objects.all().order_by('-created_date')
     page = request.GET.get('page', 1)
-    paginator = Paginator(visits, 8)
+    # if page==1:
+    #     paginator = Paginator(visits, 3)
+    # else: 
+    paginator = Paginator(visits, 4)
     try:
         visits = paginator.get_page(page)
     except PageNotAnInteger:
@@ -39,3 +42,25 @@ def create(request):
         form = VisitForm()
         ctx = {'form':form}
         return render(request, 'sioreum/visitList.html', ctx)
+
+    
+def update(request, pk):
+    visits = get_object_or_404(visitList, id=pk)
+    if request.method == 'POST':
+        form = VisitForm(request.POST, instance=visits)
+        if form.is_valid():
+            post = form.save()
+            return redirect('sioreum:visitor', pk)
+    else:
+        form = VisitForm(instance=post)
+        ctx = {'form': form}
+        return render(request, 'sioreum/visitList.html', ctx)
+
+
+def delete(request, pk):
+    visits = get_object_or_404(visitList, pk=pk)
+    if request.method == 'GET':
+        return redirect('sioreum:visitor', visits.id)
+    elif request.method == 'POST':
+        visits.delete()
+        return redirect('sioreum:visitor')

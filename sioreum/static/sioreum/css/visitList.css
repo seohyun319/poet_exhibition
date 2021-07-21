@@ -36,6 +36,11 @@
     height:40px; width:60px; object-fit: contain;
 }
 
+textarea {
+    resize:none; 
+    /* TODO overflow, resize ... */
+}
+
 .page-item:last-child .page-link,
 .page-item:first-child .page-link{
     border-radius: 50px;

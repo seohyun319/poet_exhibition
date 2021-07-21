@@ -6,3 +6,5 @@ class VisitForm(forms.ModelForm):
     class Meta:
         model = VisitForm
         fields = '__all__'
+
+
