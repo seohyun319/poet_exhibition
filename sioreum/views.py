@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, VisitForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 import json
 
 def main(request):
@@ -34,13 +36,22 @@ def visitList(request):
         visits = paginator.page(paginator.num_pages)
     return render(request, 'sioreum/visitList.html', {'visits':visits})
 
+@ method_decorator(csrf_exempt)
 def visitCreate(request):
-    req = json.loads(request.body)
-    content = req['content']
-    if content:
-        visitNew = VisitForm(text=content)
-        visitNew.save()
-    return JsonResponse({'content':content})
+    if request.method == 'GET':
+        visits = VisitForm.objects.all().order_by('-created_date')
+        return render(request, 'sioreum/visitList.html', {'visits':visits})
+
+    elif request.method == 'POST':
+        req = json.loads(request.body)
+        id = request['id']
+        content = req['content']
+        if content:
+            visitNew = VisitForm(text=content)
+            visitNew.save()
+        return JsonResponse({'id':id, 'content':content})
+
+    
 
 # def create(request):
 #     if request.method == 'POST':

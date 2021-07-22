@@ -37,8 +37,8 @@
 }
 
 .visitContent {
-    resize:none; width: 30px; 
-    overflow:hidden; overflow-wrap:break-word; overflow-y:scroll;
+    resize:none; overflow:hidden;
+    overflow-wrap:break-word; overflow-y:scroll;
 }
 
 .page-item:last-child .page-link,

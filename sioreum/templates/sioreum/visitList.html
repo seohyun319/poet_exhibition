@@ -17,9 +17,9 @@
             <div class="m-3 px-3 pt-3 card">
                 <textarea class="visitContent" name="" id="" rows="5" placeholder="내용을 적어주세요."></textarea>
                 <div class="row row-cols-3 px-3 mt-2">
-                    <input class="mt-2 author" type="text" placeholder="이름">
+                    <input class="my-1 author" type="text" placeholder="이름">
                     <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                    <button class="mt-2 text-right" type="submit" onclick="onClick()">{% csrf_token %}올리기</button>
+                    <button class="my-1 text-right uploadBtn" type="submit">{% csrf_token %}올리기</button>
                 </div>
             </div>
         {% else %}        
@@ -66,6 +66,32 @@
         </ul>
         {% endif %}
     </div>
+
+
+
+
+{% comment %} <script src="static/scripts/main.js"></script> {% endcomment %}
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+<script>
+    const request = new XMLHttpRequest();
+    
+    const onClick = (id) => {
+        const textarea = document.querySelector(".visitContent");
+        const content = textarea.value;
+        const url = "/visitor/write/";
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send(JSON.stringify({ id, content }));
+        textarea.value = "";
+    };
+    const btn = document.querySelector(".uploadBtn");
+    btn.addEventListener('click', onClick());
+    
+
+</script>
+
+
+
 </div>
  
 
@@ -76,18 +102,3 @@
 
 {% endblock %}
 
-
-{% comment %} <script src="static/scripts/main.js"></script> {% endcomment %}
-<script>
-    const request = new XMLHttpRequest();
-
-    const onClick = () => {
-        const textarea = document.querySelector(`textarea`);
-        const content = textarea.value;
-        const url = "/visitor/write/";
-        request.open("POST", url, true);
-        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send(JSON.stringify({ content }));
-        textarea.value = "";
-    };
-</script>
