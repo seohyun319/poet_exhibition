@@ -86,6 +86,16 @@
     };
     const btn = document.querySelector(".uploadBtn");
     btn.addEventListener('click', onClick());
+
+    const handleResponse = () => {
+        if (request.status <= 400) {
+            const { id } = JSON.parse(request.response);         
+
+            const createVisit = document.createElement("div");
+            create_com.innerHTML = ` ${comment}`;
+            element.appendChild(create_com);
+        }
+    };
     
 
 </script>
