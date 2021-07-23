@@ -54,7 +54,7 @@ def visitCreate(request):
                 # phone=phone 
                 )
             visitNew.save()
-        return JsonResponse({'visitNew':visitNew.text, 'name':name, })
+        return JsonResponse({'visitNew':visitNew.text,  })
 
 # def visitCreate(request):
 #     content = get_param(request, 'content', '')
