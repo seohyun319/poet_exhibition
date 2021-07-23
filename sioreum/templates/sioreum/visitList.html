@@ -24,19 +24,18 @@
             </div>
         {% else %}        
         {% endif %}
-
-        <div class="visitContainer">
-            {% for visit in visits %}
-                <div class="m-3 px-3 pt-3 card">
-                    <div class="overflow-auto">{{ visit.text }}</div>
-                    <div class="row row-cols-3 px-3 mt-2">
-                        <div class="mt-2 author">{{ visit.author }}</div>
-                        <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                        <div class="mt-2 text-right text-secondary">{{ visit.created_date|date:"y.m.d"}}</div>
-                    </div>
+<!-- TODO: visitContainer ajax wrap  -->
+        <div class="visitContainer row"></div>
+        {% for visit in visits %}
+            <div class="m-3 px-3 pt-3 card">
+                <div class="overflow-auto visitText">{{ visit.text }}</div>
+                <div class="row row-cols-3 px-3 mt-2">
+                    <div class="mt-2 author">{{ visit.author }}</div>
+                    <img src="static/sioreum/img/flower.png" class="flower" alt="">
+                    <div class="mt-2 text-right text-secondary">{{ visit.created_date|date:"y.m.d"}}</div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
 </div>
 
@@ -115,8 +114,8 @@
                 </div>
                 `;
             // const newComment = createVisit.firstElementChild
-            const newComment = createVisit.lastElementChild
-            element.appendChild(newComment);
+            // element.appendChild(newComment);
+            element.appendChild(createVisit);
         }
     };
     

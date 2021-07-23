@@ -25,7 +25,7 @@ def visitList(request):
     # if page==1:
     #     paginator = Paginator(visits, 3)
     # else: 
-    paginator = Paginator(visits, 30)
+    paginator = Paginator(visits, 7)
     try:
         visits = paginator.get_page(page)
     except PageNotAnInteger:
