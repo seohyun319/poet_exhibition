@@ -25,7 +25,7 @@ def visitList(request):
     # if page==1:
     #     paginator = Paginator(visits, 3)
     # else: 
-    paginator = Paginator(visits, 4)
+    paginator = Paginator(visits, 30)
     try:
         visits = paginator.get_page(page)
     except PageNotAnInteger:
@@ -54,7 +54,7 @@ def visitCreate(request):
                 # phone=phone 
                 )
             visitNew.save()
-        return JsonResponse({'visitNew':visitNew.text,  })
+        return JsonResponse({'comment':visitNew.text, 'writer':visitNew.author, 'time':visitNew.created_date })
 
 # def visitCreate(request):
 #     content = get_param(request, 'content', '')
