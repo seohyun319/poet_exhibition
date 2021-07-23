@@ -1,15 +1,27 @@
-const request = new XMLHttpRequest();
+// import {fetchGET, fetchPOST} from './fetch.js'
 
-const btn = document.querySelector(".uploadBtn");
-btn.addEventListener('click', () => {
-    const textarea = document.querySelector(".visitContent");
-    const content = textarea.value;
-    const url = '/visitor/write/';
-    request.open("POST", url, true);
-    request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    request.send(JSON.stringify({ content:content }));
-    // textarea.value = "";
-});
+
+
+
+
+
+
+
+
+// const request = new XMLHttpRequest();
+
+// const btn = document.querySelector(".uploadBtn");
+// btn.addEventListener('click', () => {
+//     const textarea = document.querySelector(".visitContent");
+//     const content = textarea.value;
+//     const url = '/visitor/write/';
+//     request.open("POST", url, true);
+//     request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//     request.send(JSON.stringify({ content:content }));
+//     // textarea.value = "";
+// });
+
+
 
 // btn.addEventListener('click', async () => {
 //     const textarea = document.querySelector(".visitContent");
@@ -38,6 +50,8 @@ btn.addEventListener('click', () => {
 //     request.send(JSON.stringify({ content }));
 //     textarea.value = "";
 // };
+
+
 
 
 

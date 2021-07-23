@@ -40,16 +40,29 @@ def visitList(request):
 def visitCreate(request):
     if request.method == 'GET':
         visits = VisitForm.objects.all().order_by('-created_date')
-        return render(request, 'sioreum/visitList.html', {'visits':visits})
+        return render(request, 'sioreum/visitList.html', {"visits":visits})
 
     elif request.method == 'POST':
         req = json.loads(request.body)
-        id = request['id']
+        # id = req['id']
         content = req['content']
+        name = req['name']
+        # phone = req['phone']
         if content:
-            visitNew = VisitForm(text=content)
+            visitNew = VisitForm(
+                text=content, author=name, 
+                # phone=phone 
+                )
             visitNew.save()
-        return JsonResponse({'id':id, 'content':content})
+        return JsonResponse({'visitNew':visitNew.text, 'name':name, })
+
+# def visitCreate(request):
+#     content = get_param(request, 'content', '')
+#     name = get_param(request, 'name', '')
+
+
+#     return HttpResponse(json.dumps(context), content_type='application/json')
+
 
     
 
