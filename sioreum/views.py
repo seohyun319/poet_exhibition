@@ -47,10 +47,11 @@ def visitCreate(request):
         # id = req['id']
         content = req['content']
         name = req['name']
+        date = req['date']
         # phone = req['phone']
         if content:
             visitNew = VisitForm(
-                text=content, author=name, 
+                text=content, author=name, created_date=date,
                 # phone=phone 
                 )
             visitNew.save()

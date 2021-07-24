@@ -14,6 +14,7 @@
 
     <div class="row justify-content-center">
         {% if visits.number == 1 %}
+        <!-- <div class="row"> -->
             <div class="m-3 px-3 pt-3 card">
                 <textarea class="visitContent" name="" id="" rows="5" placeholder="내용을 적어주세요."></textarea>
                 <div class="row row-cols-3 px-3 mt-2">
@@ -22,17 +23,18 @@
                     <button class="my-1 text-right uploadBtn" type="submit">올리기</button>
                 </div>
             </div>
+            <div class="visitContainer"></div>
+        <!-- </div> -->
         {% else %}        
         {% endif %}
-<!-- TODO: visitContainer ajax wrap  -->
-        <div class="visitContainer row"></div>
+        <!-- TODO: visitContainer ajax wrap, time order change -->
         {% for visit in visits %}
             <div class="m-3 px-3 pt-3 card">
                 <div class="overflow-auto visitText">{{ visit.text }}</div>
                 <div class="row row-cols-3 px-3 mt-2">
                     <div class="mt-2 author">{{ visit.author }}</div>
                     <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                    <div class="mt-2 text-right text-secondary">{{ visit.created_date|date:"y.m.d"}}</div>
+                    <div class="mt-2 text-right text-secondary createTime">{{ visit.created_date|date:"y.m.d"}}</div>
                 </div>
             </div>
         {% endfor %}
@@ -85,12 +87,14 @@
     const onClick = () => {
         const textarea = document.querySelector(".visitContent");
         const namearea = document.querySelector(".author");
+        const timearea = document.getElementsByClassName("createTime");
         const content = textarea.value;
         const name = namearea.value;
+        const date = timearea.value;
         const url = "/visitor/write/";
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send(JSON.stringify({ content, name }));
+        request.send(JSON.stringify({ content, name, date }));
         textarea.value = "";
         namearea.value = "";
     };
@@ -100,12 +104,13 @@
 
     const handleResponse = () => {
         if (request.status <= 400) {
+            // const timeFormat = time.yymmdd;
             const { comment, writer, time } = JSON.parse(request.response);         
             const element = document.querySelector(".visitContainer")
             const createVisit = document.createElement("div");
             createVisit.innerHTML = `
                 <div class="m-3 px-3 pt-3 card">
-                    <div class="overflow-auto">${ comment }</div>
+                    <div class="overflow-auto" style="height:130px;">${ comment }</div>
                         <div class="row row-cols-3 px-3 mt-2">
                         <div class="mt-2 author">${ writer }</div>
                         <img src="static/sioreum/img/flower.png" class="flower" alt="">
@@ -131,7 +136,7 @@
 
  
 
-<!-- TODO: put form, textarea css -->
+<!-- TODO: textarea css, pagination edit, ajax time format -->
 
 
 {% endblock %}
