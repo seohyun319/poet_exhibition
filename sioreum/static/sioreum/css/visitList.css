@@ -41,6 +41,16 @@
     overflow-wrap:break-word; overflow-y:scroll;
 }
 
+.uploadBtn {
+    transition: opacity 0.2s;
+	color: #0095f6;
+	opacity: 0.75;
+}
+
+.uploadBtn.active {
+	opacity: 1;
+}
+
 .page-item:last-child .page-link,
 .page-item:first-child .page-link{
     border-radius: 50px;

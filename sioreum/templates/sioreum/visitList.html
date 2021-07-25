@@ -20,7 +20,7 @@
                 <div class="row row-cols-3 px-3 mt-2">
                     <input class="my-1 author" type="text" placeholder="이름">
                     <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                    <button class="my-1 text-right uploadBtn" type="submit">올리기</button>
+                    <button class="my-1 text-right uploadBtn active" type="submit">올리기</button>
                 </div>
             </div>
             <div class="visitContainer"></div>
@@ -81,6 +81,16 @@
 
     
 <script>
+
+    // const validateComment = () => {
+    //     if (!textarea.value || !name) {
+    //         btn.classList.remove('active');
+    //         return false;
+    //     }        
+    //     btn.classList.add('active');
+    //     return true;
+    // }
+
     const request = new XMLHttpRequest();
     
     
@@ -95,6 +105,14 @@
         //     date = timearea[i].value;
         // };
         // const date = timearea.value;
+        // -----------------------------------
+        if (!name) {
+            btn.classList.remove('active');
+            return false;
+        } else {
+            btn.classList.add('active');
+            return true;
+        }     
         const url = "/visitor/write/";
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -111,15 +129,15 @@
             const { comment, writer, time } = JSON.parse(request.response);         
             const element = document.querySelector(".visitContainer")
             const createVisit = document.createElement("div");
-            const timeFormat = "YY.MM.DD";
-            const timeEdit = moment(time).format(timeFormat);
+            // const timeFormat = "YY.MM.DD";
+            // const timeEdit = moment(time).format(timeFormat);
             createVisit.innerHTML = `
                 <div class="m-3 px-3 pt-3 card">
                     <div class="overflow-auto" style="height:130px;">${ comment }</div>
                         <div class="row row-cols-3 px-3 mt-2">
                         <div class="mt-2 author">${ writer }</div>
                         <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                        <div class="mt-2 text-right text-secondary" style="height:20px;">${ timeEdit } </div>
+                        <div class="mt-2 text-right text-secondary" style="height:25px;">${ time } </div>
                     </div>
                 </div>
                 `;
