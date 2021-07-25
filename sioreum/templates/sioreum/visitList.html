@@ -87,18 +87,18 @@
     const onClick = () => {
         const textarea = document.querySelector(".visitContent");
         const namearea = document.querySelector(".author");
-        const timearea = document.getElementsByClassName("createTime");
+        // const timearea = document.getElementsByClassName("createTime");
         const content = textarea.value;
         const name = namearea.value;
-        let date = null;
-        for (var i = 0; i < timearea.length; i++) {
-            date = timearea[i].value;
-        };
+        // let date = null;
+        // for (var i = 0; i < timearea.length; i++) {
+        //     date = timearea[i].value;
+        // };
         // const date = timearea.value;
         const url = "/visitor/write/";
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send(JSON.stringify({ content, name, date }));
+        request.send(JSON.stringify({ content, name }));
         textarea.value = "";
         namearea.value = "";
     };
@@ -108,17 +108,18 @@
 
     const handleResponse = () => {
         if (request.status <= 400) {
-            // const timeFormat = time.yymmdd;
-            const { comment, writer, time, y, m, d } = JSON.parse(request.response);         
+            const { comment, writer, time } = JSON.parse(request.response);         
             const element = document.querySelector(".visitContainer")
             const createVisit = document.createElement("div");
+            const timeFormat = "YY.MM.DD";
+            const timeEdit = moment(time).format(timeFormat);
             createVisit.innerHTML = `
                 <div class="m-3 px-3 pt-3 card">
                     <div class="overflow-auto" style="height:130px;">${ comment }</div>
                         <div class="row row-cols-3 px-3 mt-2">
                         <div class="mt-2 author">${ writer }</div>
                         <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                        <div class="mt-2 text-right text-secondary">${ time } ${ y}${ m }${ d} </div>
+                        <div class="mt-2 text-right text-secondary" style="height:20px;">${ timeEdit } </div>
                     </div>
                 </div>
                 `;

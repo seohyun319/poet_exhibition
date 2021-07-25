@@ -8,6 +8,7 @@
 
 
 
+
 // const request = new XMLHttpRequest();
 
 // const btn = document.querySelector(".uploadBtn");

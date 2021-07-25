@@ -47,21 +47,21 @@ def visitCreate(request):
         # id = req['id']
         content = req['content']
         name = req['name']
-        date = req['date']
-        y=date[2:4]
-        m=date[5:7]
-        d=date[8:10]
-        time=y+'.'+m+'.'+d
+        # date = req['date']
+        # y=date[2:4]
+        # m=date[5:7]
+        # d=date[8:10]
+        # time=y+'.'+m+'.'+d
         # phone = req['phone']
         if content:
             visitNew = VisitForm(
                 text=content, author=name, 
-                created_date=time,
+                # created_date=time,
                 # phone=phone 
                 )
             visitNew.save()
         return JsonResponse({'comment':visitNew.text, 'writer':visitNew.author, 'time':visitNew.created_date, 
-        'y':y, 'm':m, 'd':d, 
+        # 'y':y, 'm':m, 'd':d, 
         })
 
 # def visitCreate(request):
