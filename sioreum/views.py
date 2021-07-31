@@ -47,6 +47,7 @@ def visitCreate(request):
         # id = req['id']
         content = req['content']
         name = req['name']
+        number = req['number']
         # date = req['date']
         # y=date[2:4]
         # m=date[5:7]
@@ -55,7 +56,7 @@ def visitCreate(request):
         # phone = req['phone']
         if content:
             visitNew = VisitForm(
-                text=content, author=name, 
+                text=content, author=name, phone=number,
                 # created_date=time,
                 # phone=phone 
                 )

@@ -9,7 +9,8 @@
     <title>방명록</title>
     <div class="info col-7 offset-2 p-2 mb-4">방명록을 남겨주세요. <br/>
     전화번호를 남겨주신 분에 한하여 추첨을 통해 시오름 굿즈를 배송해 드립니다.
-    전화번호는 배송 후 폐기됩니다.
+    전화번호는 배송 후 폐기됩니다. <br/>
+    입력하신 전화번호는 관리자 외에 열람 불가합니다.
     </div>
 
     <div class="row justify-content-center">
@@ -17,7 +18,8 @@
         <!-- <div class="row"> -->
             <div class="m-3 px-3 pt-3 card">
                 <textarea class="visitContent" name="" id="" rows="5" placeholder="내용을 적어주세요."></textarea>
-                <div class="row row-cols-3 px-3 mt-2">
+                <input class="my-1 number" type="text" placeholder="전화번호 (010-0000-0000)">
+                <div class="row row-cols-3 px-3 ">
                     <input class="my-1 author" type="text" placeholder="이름">
                     <img src="static/sioreum/img/flower.png" class="flower" alt="">
                     <button class="my-1 text-right uploadBtn active" type="submit">올리기</button>
@@ -97,28 +99,31 @@
     const onClick = () => {
         const textarea = document.querySelector(".visitContent");
         const namearea = document.querySelector(".author");
+        const numberarea = document.querySelector(".number");
         // const timearea = document.getElementsByClassName("createTime");
         const content = textarea.value;
         const name = namearea.value;
+        const number = numberarea.value;
         // let date = null;
         // for (var i = 0; i < timearea.length; i++) {
         //     date = timearea[i].value;
         // };
         // const date = timearea.value;
         // -----------------------------------
-        if (!name) {
-            btn.classList.remove('active');
-            return false;
-        } else {
-            btn.classList.add('active');
-            return true;
-        }     
+        // if (!name) {
+        //     btn.classList.remove('active');
+        //     return false;
+        // } else {
+        //     btn.classList.add('active');
+        //     return true;
+        // }     
         const url = "/visitor/write/";
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send(JSON.stringify({ content, name }));
+        request.send(JSON.stringify({ content, name, number }));
         textarea.value = "";
         namearea.value = "";
+        numberarea.value = "";
     };
     const btn = document.querySelector(".uploadBtn");
     btn.addEventListener('click', onClick);
