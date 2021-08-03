@@ -112,17 +112,17 @@
             
         const url = "/visitor/write/";
 
-        if(!validName()) return
+        // if(!validName()) return
         
-        namearea.addEventListener('input', () => {
-            if (!namearea.value) {
-                btn.classList.remove('active');
-                return false;
-            }  else {
-                btn.classList.add('active');
-                return true;         
-            }
-        })
+        // namearea.addEventListener('input', () => {
+        //     if (!namearea.value) {
+        //         btn.classList.remove('active');
+        //         return false;
+        //     }  else {
+        //         btn.classList.add('active');
+        //         return true;         
+        //     }
+        // })
 
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
