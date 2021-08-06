@@ -21,7 +21,7 @@
                 <div class="row row-cols-3 px-3 ">
                     <input class="my-1 author" type="text" placeholder="이름">
                     <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                    <button class="my-1 text-right uploadBtn active" type="submit">올리기</button>
+                    <button class="my-1 uploadBtn " type="submit">올리기</button>
                 </div>
             </div>
             <div class="visitContainer"></div>
@@ -92,24 +92,39 @@
     const textarea = document.querySelector(".visitContent");
     const namearea = document.querySelector(".author");
     const numberarea = document.querySelector(".number");
-
-    const validName = () => {
-        if (!textarea.value) {
-            btn.classList.remove('active');
+    
+    const validText = () => {
+        if (namearea.value && textarea.value) {
+            btn.classList.add('active');
+            return true;           
+        } if (!textarea.value) {
             alert("내용을 작성해주세요.")
+            btn.classList.remove('active');
             return false;
-        } else if (!namearea.value) {
+        } 
+    }
+    
+    const validName = () => {
+        if (namearea.value && textarea.value) {
+            btn.classList.add('active');
+            return true;        
+        } if (!namearea.value) {
             btn.classList.remove('active');
             alert("이름을 작성해주세요.")
             return false;
-        }  else {
-            btn.classList.add('active');
-            return true;         
-        }
+        }             
     }
+
+    textarea.addEventListener('input', () => {
+        validText();
+    })
+    
+    namearea.addEventListener('input', () => {
+        validName();
+    })
     
     const onClick = () => {
-        if(!validName()) return
+        if(!validText() && !validName()) return
         const content = textarea.value;
         const name = namearea.value;
         const number = numberarea.value;
@@ -117,8 +132,8 @@
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send(JSON.stringify({ content, name, number }));
-        textarea.value = "";
-        namearea.value = "";
+        textarea.value = ""; 
+        namearea.value = ""; 
         numberarea.value = "";
     };
 
@@ -128,14 +143,11 @@
             const { comment, writer, time } = JSON.parse(request.response);         
             const element = document.querySelector(".visitContainer")
             const createVisit = document.createElement("div");
-            const dateTime =new Date(time) 
+            const dateTime = new Date(time) 
             const newTime = dateTime.toLocaleDateString('en-US', {year: '2-digit'}) + "." +
                             dateTime.toLocaleDateString('en-US', {month: '2-digit'}) + "." +
                             dateTime.toLocaleDateString('en-US', {day: '2-digit'}) 
-            
-            // const newTime = new Date(time).toLocaleDateString('ko-KR', {
-            // month: '2-digit',day: '2-digit',year: '2-digit'});
-        
+          
             createVisit.innerHTML = `
                 <div class="m-3 px-3 pt-3 card">
                     <div class="overflow-auto" style="height:130px;">${ comment }</div>
