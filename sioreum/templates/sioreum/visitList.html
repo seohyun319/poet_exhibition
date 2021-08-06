@@ -137,6 +137,48 @@
             const { comment, writer, time } = JSON.parse(request.response);         
             const element = document.querySelector(".visitContainer")
             const createVisit = document.createElement("div");
+            // const newTime = {time}.toLocaleString("ko-KR");
+            // const newTime = {time}.toLocaleDateString();
+            // const newTime = DateFormat.yMd().format(time);
+            // var dateTime = new Date({time});
+            const dateTime = new Date(time).toLocaleDateString();
+            
+            console.log(dateTime);
+
+            const newDate = toLocaleString(dateTime);
+            // const newDate = moment().format("MMM Do YY"); 
+
+            // const newDate = date.getFullYear();
+            
+            // const newDate = dateTime.split("T")[0];
+            console.log(newDate);
+            
+            // function isValidDate(dateTime) {
+            //     return dateTime instanceof Date && !isNaN(dateTime);
+            // }
+            // const newTime = dateTime.toLocaleDateString();
+
+            // const newTime = moment(dateTime, 'YYYY-MM-DD'); 
+            // console.log(newTime);
+
+            // if (Object.prototype.toLocaleDateString.call(newTime) === "[object Date]") {
+            //     // it is a date
+            //     if (isNaN(newTime.getTime())) {  // d.valueOf() could also work
+            //         // date is not valid
+            //     } else {
+            //         // date is valid
+            //     }
+            // } else {
+            // // not a date
+            // }
+
+            // var timestamp = Date.parse({time});
+
+            // if (isNaN(timestamp) == false) {
+            //     var d = new Date(timestamp);
+            // }
+            
+
             // const timeFormat = "YY.MM.DD";
             // const timeEdit = moment(time).format(timeFormat);
             createVisit.innerHTML = `
@@ -145,7 +187,7 @@
                         <div class="row row-cols-3 px-3 mt-2">
                         <div class="mt-2 author">${ writer }</div>
                         <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                        <div class="mt-2 text-right text-secondary" style="height:25px;">${ time } </div>
+                        <div class="mt-2 text-right text-secondary" style="height:25px;">${ newTime } </div>
                     </div>
                 </div>
                 `;
