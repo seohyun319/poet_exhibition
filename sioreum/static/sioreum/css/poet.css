@@ -21,6 +21,12 @@
 
 .backgrd {
     background-color: rgba(0, 0, 0, 0.3); height:240px;
+    opacity: 0; 
+}
+
+.backgrd:hover {
+    transition: opacity 0.2s;
+    opacity: 1;
 }
 
 .end {

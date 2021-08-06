@@ -6,8 +6,8 @@
 
 {% block content %}
 <title>공백들 : 시화전 시 목록</title>
-    <div id="MainBan" class="pt-4">
-        <a href="/"><img src="static/sioreum/img/mainban.png" alt="banner"></a>
+    <div class="mainban pt-4">
+        <a href="/"><img src="static/sioreum/img/mainban.png" alt="banner"  style="width: 100%;"></a>
     </div>
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
@@ -16,7 +16,7 @@
                 <a href="{% url 'poetDetail' pk=poet.pk %}">
                     <div class="rounded img-thumbnail img-fluid float-left text-light p-1 mx-auto" 
                     style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}');">
-                        <div class="backgrd" >
+                        <div class="backgrd " >
                             <h3 class="pt-5">{{ poet.title }}</h3>
                             <div class="pt-3">{{ poet.author }}</div>
                         </div> 
@@ -27,5 +27,22 @@
         </div>
     </div>
     <div class="end"><br/></div>
+
+
+
+<script>
+    const backgrd = document.querySelector(".backgrd");
+    const thumbnail = document.querySelector(".img-thumbnail");
+    const mouseOn = () => {
+        backgrd.classList.add('visible');
+    }
+    console.log(mouseOn);
+    thumbnail.addEventListener('onmouseover', () => {
+        mouseOn;
+    })
+
+</script>
+
+
 {% endblock %}
 
