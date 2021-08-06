@@ -110,18 +110,9 @@
     
     const onClick = () => {
         if(!validName()) return
-        // const timearea = document.getElementsByClassName("createTime");
         const content = textarea.value;
         const name = namearea.value;
         const number = numberarea.value;
-        // let date = null;
-        // for (var i = 0; i < timearea.length; i++) {
-        //     date = timearea[i].value;
-        // };
-        // const date = timearea.value;
-        // -----------------------------------
-        
-            
         const url = "/visitor/write/";
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -137,50 +128,14 @@
             const { comment, writer, time } = JSON.parse(request.response);         
             const element = document.querySelector(".visitContainer")
             const createVisit = document.createElement("div");
-            // const newTime = {time}.toLocaleString("ko-KR");
-            // const newTime = {time}.toLocaleDateString();
-            // const newTime = DateFormat.yMd().format(time);
-            // var dateTime = new Date({time});
-            const dateTime = new Date(time).toLocaleDateString();
+            const dateTime =new Date(time) 
+            const newTime = dateTime.toLocaleDateString('en-US', {year: '2-digit'}) + "." +
+                            dateTime.toLocaleDateString('en-US', {month: '2-digit'}) + "." +
+                            dateTime.toLocaleDateString('en-US', {day: '2-digit'}) 
             
-            console.log(dateTime);
-
-            const newDate = toLocaleString(dateTime);
-            // const newDate = moment().format("MMM Do YY"); 
-
-            // const newDate = date.getFullYear();
-            
-            // const newDate = dateTime.split("T")[0];
-            console.log(newDate);
-            
-            // function isValidDate(dateTime) {
-            //     return dateTime instanceof Date && !isNaN(dateTime);
-            // }
-            // const newTime = dateTime.toLocaleDateString();
-
-            // const newTime = moment(dateTime, 'YYYY-MM-DD'); 
-            // console.log(newTime);
-
-            // if (Object.prototype.toLocaleDateString.call(newTime) === "[object Date]") {
-            //     // it is a date
-            //     if (isNaN(newTime.getTime())) {  // d.valueOf() could also work
-            //         // date is not valid
-            //     } else {
-            //         // date is valid
-            //     }
-            // } else {
-            // // not a date
-            // }
-
-            // var timestamp = Date.parse({time});
-
-            // if (isNaN(timestamp) == false) {
-            //     var d = new Date(timestamp);
-            // }
-            
-
-            // const timeFormat = "YY.MM.DD";
-            // const timeEdit = moment(time).format(timeFormat);
+            // const newTime = new Date(time).toLocaleDateString('ko-KR', {
+            // month: '2-digit',day: '2-digit',year: '2-digit'});
+        
             createVisit.innerHTML = `
                 <div class="m-3 px-3 pt-3 card">
                     <div class="overflow-auto" style="height:130px;">${ comment }</div>
