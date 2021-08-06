@@ -15,9 +15,8 @@
 
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center visitContainer">
         {% if visits.number == 1 %}
-        <!-- <div class="row"> -->
             <div class="m-3 px-3 pt-3 pb-1 card">
                 <textarea class="visitContent" name="" id="" rows="5" placeholder="내용을 적어주세요."></textarea>
                 <input class="my-1 number" type="text" placeholder="전화번호 (010-0000-0000)">
@@ -27,11 +26,8 @@
                     <button class="my-1 uploadBtn" type="submit">올리기</button>
                 </div>
             </div>
-            <div class="visitContainer"></div>
-        <!-- </div> -->
         {% else %}        
         {% endif %}
-        <!-- TODO: visitContainer ajax wrap, time order change -->
         {% for visit in visits %}
             <div class="m-3 px-3 pt-3 card">
                 <div class="overflow-auto visitText">{{ visit.text }}</div>
@@ -164,11 +160,19 @@
                     </div>
                 </div>
                 `;
-            // const newComment = createVisit.firstElementChild
-            // element.appendChild(newComment);
-            element.appendChild(createVisit);
+            element.insertBefore(createVisit, element.children[1]);
+            console.log(element.children[8]);
+            element.children[8].hidden=true;
         }
     };
+            {% comment %} const pageBtn = document.querySelector(".pagination");
+            const page2Btn = pageBtn.children[3];
+            const clickPage2 = () => {
+                element.children[8].hidden=false;
+            } 
+            page2Btn.addEventListener('click', clickPage2()); {% endcomment %}
+            
+
     
     request.onreadystatechange = () => {
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -176,13 +180,6 @@
         }
     };
 </script>
-
-
- 
-
- 
-
-<!-- TODO: textarea css, pagination edit, ajax time format -->
 
 
 {% endblock %}
