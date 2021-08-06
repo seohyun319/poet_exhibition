@@ -22,10 +22,9 @@ def poetDetail(request,pk):
 def visitList(request):
     visits = VisitForm.objects.all().order_by('-created_date')
     page = request.GET.get('page', 1)
-    # if page==1:
-    #     paginator = Paginator(visits, 3)
-    # else: 
-    paginator = Paginator(visits, 7)
+    if (page=="1"):
+        paginator = Paginator(visits, 7)
+    else: paginator = Paginator(visits, 8)
     try:
         visits = paginator.get_page(page)
     except PageNotAnInteger:
@@ -44,34 +43,15 @@ def visitCreate(request):
 
     elif request.method == 'POST':
         req = json.loads(request.body)
-        # id = req['id']
         content = req['content']
         name = req['name']
         number = req['number']
-        # date = req['date']
-        # y=date[2:4]
-        # m=date[5:7]
-        # d=date[8:10]
-        # time=y+'.'+m+'.'+d
-        # phone = req['phone']
         if content:
             visitNew = VisitForm(
                 text=content, author=name, phone=number,
-                # created_date=time,
-                # phone=phone 
                 )
             visitNew.save()
-        return JsonResponse({'comment':visitNew.text, 'writer':visitNew.author, 'time':visitNew.created_date, 
-        # 'y':y, 'm':m, 'd':d, 
-        })
-
-# def visitCreate(request):
-#     content = get_param(request, 'content', '')
-#     name = get_param(request, 'name', '')
-
-
-#     return HttpResponse(json.dumps(context), content_type='application/json')
-
+        return JsonResponse({'comment':visitNew.text, 'writer':visitNew.author, 'time':visitNew.created_date })
 
     
 
