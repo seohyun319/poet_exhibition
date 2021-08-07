@@ -31,12 +31,8 @@ pre {
     min-width: 440px;
     max-width: 700px;
 }
-/* 
-.tx {
-    text-align: center;
-} */
 
-.btn {
+.linkBtn {
     background-color: #fff6f2;
     border-color: #ffcfbc;
     border-width: 3px;
@@ -50,11 +46,10 @@ pre {
     cursor:pointer;
 }
 
-
-
 .title {
     border-color: #92a8c9; border-style:solid;
     border-radius: 10px;
+    background-color: white;
     padding: 4px 20px; 
     color: #92a8c9;
     overflow: hidden;
@@ -69,13 +64,9 @@ pre {
     overflow: hidden;
     margin: 5px;
 }
-/* 
-input[id*="PrjDrop"] {
-    display:none;
-}
 
-input[id*="PrjDrop"] + label {
-    display:block;
-    padding:3px;
-    cursor: pointer;
-} */
+.drop button {
+    color: gray;
+    width: 250px;
+    background-color: white;
+}

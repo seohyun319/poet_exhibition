@@ -1,7 +1,7 @@
 {% extends 'sioreum/base.html' %}
 {% load static %}
 {% block extra_head %}
-    <link rel="stylesheet" href="{% static 'sioreum/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'sioreum/css/main.css' %}">    
 {% endblock %}
 
 {% block content %}
@@ -39,22 +39,22 @@
             새 종이를 펼쳐내는 우리의 모습.
         
             이 열넷의 공백들을 한곳에 모았습니다.</pre></p>
-        <a class="btn" href="/poet">시화전 보러가기</a>
+        <a class="btn linkBtn" href="/poet">시화전 보러가기</a>
     </div>
 
-    <div class="mainBox">
+    <div class="mainBox container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-sm-1">
             <div class="col">
                 <h3 class="title">
                     詩오름이란? 
                 </h3>
                 <div class="drop">
-                    <a data-toggle="collapse" href="#c1">
+                    <button class="btn" data-toggle="collapse" href="#c1" aria-expanded="false">
                         자세히 보기
                         <i class="arrow"></i>
-                    </a>
+                    </button>
                     <div class="collapse" id="c1">
-                        <div>
+                        <div class="m-2">
                             숙명여자대학교 한국어문학부 시 학회입니다. <br />
                             시를 읽고 시를 씁니다.<br />
                             시를 천천히 삼켜 생각의 타래를 늘이고 하나의 직물을 짭니다.<br />
@@ -69,12 +69,12 @@
                     시화전이란?
                 </h3>
                 <div class="drop">
-                    <a data-toggle="collapse" href="#c2">
+                    <button class="btn" data-toggle="collapse" href="#c2" aria-expanded="false">
                         자세히 보기
                         <i class="arrow"></i>
-                    </a>
+                    </button>
                     <div class="collapse" id="c2">
-                        <div>
+                        <div class="m-2">
                             시오름의 학회원이 직접 쓴 시를 그림 혹은 사진과 함께 전시하는 전시회입니다. 
                                 19년까지 숙명여자대학교에서 오프라인 전시를 했으나, 현재 코로나로 인해 온라인 전시회를 열게 되었습니다.
                         </div>          
@@ -90,16 +90,16 @@
         </p>
         <div class="">
             <div class="drop">
-                <a data-toggle="collapse" href="#c3">
+                <button class="btn" data-toggle="collapse" href="#c3" aria-expanded="false">
                     굿즈 자세히 보기
                     <i class="arrow"></i>
-                </a>
-                <div class="collapse" id="c3">
+                </button>
+                <div class="collapse py-3" id="c3">
                     <a href="static/sioreum/img/goods.png"><img src="static/sioreum/img/goods.png" alt="banner" style="width: 100%;"></a>         
                 </div> 
             </div>
         </div>
-        <a class="btn" href="/visitor?page=1">발자취 남기러 가기</a>
+        <a class="btn linkBtn" href="/visitor?page=1">발자취 남기러 가기</a>
     </div>
 </div>
 {% endblock %}
