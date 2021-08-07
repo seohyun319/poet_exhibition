@@ -52,7 +52,6 @@
 .uploadBtn.active {
     opacity: 1;
     color: #0082d8;
-    /* background-color: #bcdfff; */
 }
 
 .page-item:last-child .page-link,

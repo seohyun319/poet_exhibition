@@ -17,17 +17,10 @@ class Post(models.Model):
 
 
 class VisitForm(models.Model):
-    # author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="이름")
     author = models.CharField(max_length=200, verbose_name="이름")
     text = models.TextField(verbose_name="내용")
     phone = models.CharField(max_length=200, verbose_name="전화번호", blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True, verbose_name="작성일")
-    # published_date = models.DateTimeField(
-    #         blank=True, null=True)
-
-    # def publish(self):
-    #     self.published_date = timezone.now()
-    #     self.save()
 
     def __str__(self):
         return self.author 

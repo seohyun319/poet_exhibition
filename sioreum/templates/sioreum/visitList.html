@@ -19,7 +19,7 @@
         {% if visits.number == 1 %}
             <div class="m-3 px-3 pt-3 pb-1 card">
                 <textarea class="visitContent" name="" id="" rows="5" placeholder="내용을 적어주세요."></textarea>
-                <input class="my-1 number" type="number" placeholder="전화번호">
+                <input class="my-1 number" type="text" placeholder="전화번호 (010-0000-0000)">
                 <div class="row row-cols-3 px-3 ">
                     <input class="my-1 author" type="text" placeholder="이름">
                     <img src="static/sioreum/img/flower.png" class="flower" alt="">
@@ -71,129 +71,7 @@
     </div>
 </div>
 
-
-
-
-{% comment %} <script src="static/scripts/main.js"></script> {% endcomment %}
-{% comment %} <script type="module" src="{% static 'sioreum/js/main.js' %}"></script> {% endcomment %}
-<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-    {% comment %} window.csrfToken = '{{ csrf_token }}' {% endcomment %}
-
-    
-<script>
-    const request = new XMLHttpRequest();
-    
-    const btn = document.querySelector(".uploadBtn");
-    const textarea = document.querySelector(".visitContent");
-    const namearea = document.querySelector(".author");
-    const numberarea = document.querySelector(".number");
-    
-    const validText = () => {
-        if (namearea.value && textarea.value) {
-            btn.classList.add('active');
-            // btn.disabled=false;
-            return true;           
-        } if (!textarea.value) {
-            alert("내용을 작성해주세요.")
-            btn.classList.remove('active');
-            // btn.disabled=true;
-            return false;
-        } 
-    }
-    
-    const validName = () => {
-        if (namearea.value && textarea.value) {
-            btn.classList.add('active');
-            return true;        
-        } if (!namearea.value) {
-            btn.classList.remove('active');
-            alert("이름을 작성해주세요.")
-            return false;
-        }             
-    }
-
-    btn.addEventListener('click', () => {
-        onClick();
-    })
-
-    textarea.addEventListener('input', () => {
-        validText();
-    })
-    
-    namearea.addEventListener('input', () => {
-        validName();
-    })
-    
- //   const numberFormat = () => {
- //       return numberarea.value.replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, "$1-$2-$3");        
- //   }
-    
-  //  numberarea.addEventListener('keyup', () => {
-        //var number = numberarea.value;
-        //console.log(number.length);
-        //numberarea.value(numberarea.value().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") );
-        //number.replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-");
-        //number(number().replace(/[^0-9]/g, "").replace("--", "-") );
-        //number.replace("/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/", "$1-$2-$3");        
-        //number = number.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
-        //numberFormat();
-  //  })
-
-  //  $(document).on("keyup", ".phoneNumber", function() { $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); });
-    
-    const onClick = () => {
-        const content = textarea.value;
-        const name = namearea.value;
-        const number = numberarea.value;
-        if(!validText() && !validName()) return
-        const url = "/visitor/write/";
-        request.open("POST", url, true);
-        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        request.send(JSON.stringify({ content, name, number }));
-        textarea.value = ""; 
-        namearea.value = ""; 
-        numberarea.value = "";
-    };
-
-
-    const handleResponse = () => {
-        if (request.status <= 400) {
-            const { comment, writer, time } = JSON.parse(request.response);         
-            const element = document.querySelector(".visitContainer")
-            const createVisit = document.createElement("div");
-            const dateTime = new Date(time) 
-            const newTime = dateTime.toLocaleDateString('en-US', {year: '2-digit'}) + "." +
-                            dateTime.toLocaleDateString('en-US', {month: '2-digit'}) + "." +
-                            dateTime.toLocaleDateString('en-US', {day: '2-digit'}) 
-          
-            createVisit.innerHTML = `
-                <div class="m-3 px-3 pt-3 card">
-                    <div class="overflow-auto" style="height:130px;">${ comment }</div>
-                        <div class="row row-cols-3 px-3 mt-2">
-                        <div class="mt-2 author">${ writer }</div>
-                        <img src="static/sioreum/img/flower.png" class="flower" alt="">
-                        <div class="mt-2 text-right text-secondary" style="height:25px;">${ newTime } </div>
-                    </div>
-                </div>
-                `;
-            element.insertBefore(createVisit, element.children[1]);
-            element.children[8].hidden=true;
-        }
-    };
-            {% comment %} const pageBtn = document.querySelector(".pagination");
-            const page2Btn = pageBtn.children[3];
-            const clickPage2 = () => {
-                element.children[8].hidden=false;
-            } 
-            page2Btn.addEventListener('click', clickPage2()); {% endcomment %}
-   
-    request.onreadystatechange = () => {
-        if (request.readyState === XMLHttpRequest.DONE) {
-            handleResponse();
-        }
-    };
-</script>
-
+<script src="{% static 'sioreum/js/main.js' %}"></script>
 
 {% endblock %}
 

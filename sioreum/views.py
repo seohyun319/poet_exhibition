@@ -40,7 +40,6 @@ def visitCreate(request):
     if request.method == 'GET':
         visits = VisitForm.objects.all().order_by('-created_date')
         return render(request, 'sioreum/visitList.html', {"visits":visits})
-
     elif request.method == 'POST':
         req = json.loads(request.body)
         content = req['content']
@@ -52,38 +51,3 @@ def visitCreate(request):
                 )
             visitNew.save()
         return JsonResponse({'comment':visitNew.text, 'writer':visitNew.author, 'time':visitNew.created_date })
-
-    
-
-# def create(request):
-#     if request.method == 'POST':
-#         form = VisitForm(request.POST)
-#         if form.is_valid():
-#             post = form.save()
-#             return redirect('sioreum:visitor')
-#     else: 
-#         form = VisitForm()
-#         ctx = {'form':form}
-#         return render(request, 'sioreum/visitList.html', ctx)
-
-    
-# def update(request, pk):
-#     visits = get_object_or_404(visitList, id=pk)
-#     if request.method == 'POST':
-#         form = VisitForm(request.POST, instance=visits)
-#         if form.is_valid():
-#             post = form.save()
-#             return redirect('sioreum:visitor', pk)
-#     else:
-#         form = VisitForm(instance=post)
-#         ctx = {'form': form}
-#         return render(request, 'sioreum/visitList.html', ctx)
-
-
-# def delete(request, pk):
-#     visits = get_object_or_404(visitList, pk=pk)
-#     if request.method == 'GET':
-#         return redirect('sioreum:visitor', visits.id)
-#     elif request.method == 'POST':
-#         visits.delete()
-#         return redirect('sioreum:visitor')
