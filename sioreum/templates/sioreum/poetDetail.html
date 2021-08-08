@@ -7,7 +7,7 @@
 {% block content %}
 <title>시 자세히 보기</title>
 <div class="mx-auto img-bg" 
-    style="background-image: url('/static/sioreum/img{{ poet.backgroundImg.url }}');">
+    style="background-image: url('{{ poet.backgroundImg.url }}');">
         {% if poet.text_color %}
             {% if poet.background %}
             <div class="m-5 backgrd2" >

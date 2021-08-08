@@ -15,7 +15,7 @@
             <div class="text-center m-2" >
                 <a href="{% url 'poetDetail' pk=poet.pk %}">
                     <div class="rounded img-thumbnail img-fluid float-left text-light p-1 mx-auto" 
-                    style="background-image: url('/static/sioreum/img{{ poet.thumbnail.url }}');">
+                    style="background-image: url('{{ poet.thumbnail.url }}');">
                         <div class="backgrd " >
                             <h3 class="pt-5">{{ poet.title }}</h3>
                             <div class="pt-3">{{ poet.author }}</div>
