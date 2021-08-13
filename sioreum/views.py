@@ -23,8 +23,8 @@ def visitList(request):
     visits = VisitForm.objects.all().order_by('-created_date')
     page = request.GET.get('page', 1)
     if (page=="1"):
-        paginator = Paginator(visits, 7)    
-    else : paginator = Paginator(visits, 8)
+        paginator = Paginator(visits, 5)    
+    else : paginator = Paginator(visits, 6)
     try:
         visits = paginator.get_page(page)
     except PageNotAnInteger:

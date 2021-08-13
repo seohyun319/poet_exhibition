@@ -73,7 +73,7 @@ const request = new XMLHttpRequest();
                 </div>
                 `;
             element.insertBefore(createVisit, element.children[1]);
-            element.children[8].hidden=true;
+            element.children[6].hidden=true;
         }
     };
    
