@@ -20,11 +20,11 @@ def poetDetail(request,pk):
     return render(request, 'sioreum/poetDetail.html', {'poet': poet})
 
 def visitList(request):
-    visits = VisitForm.objects.all().order_by('-created_date')
+    visit_all = VisitForm.objects.all().order_by('-created_date')
     page = request.GET.get('page', 1)
     if (page=="1"):
-        paginator = Paginator(visits, 5)    
-    else : paginator = Paginator(visits, 6)
+        paginator = Paginator(visit_all, 5)    
+    else : paginator = Paginator(visit_all, 6)
     try:
         visits = paginator.get_page(page)
     except PageNotAnInteger:
@@ -33,7 +33,7 @@ def visitList(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         visits = paginator.page(paginator.num_pages)
-    return render(request, 'sioreum/visitList.html', {'visits':visits})
+    return render(request, 'sioreum/visitList.html', {'visit_all':visit_all, 'visits':visits})
 
 @ method_decorator(csrf_exempt)
 def visitCreate(request):

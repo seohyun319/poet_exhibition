@@ -19,6 +19,10 @@
     border-radius: 10px;
 }
 
+.vcount {
+    color: #985edb;
+}
+
 .card {
     background-color:#fff5f5;  
             height: 200px; width: 300px;
