@@ -61,7 +61,12 @@ const request = new XMLHttpRequest();
             const dateTime = new Date(time) 
             const newTime = dateTime.toLocaleDateString('en-US', {year: '2-digit'}) + "." +
                             dateTime.toLocaleDateString('en-US', {month: '2-digit'}) + "." +
-                            dateTime.toLocaleDateString('en-US', {day: '2-digit'})           
+                            dateTime.toLocaleDateString('en-US', {day: '2-digit'})    
+            const num = document.querySelector(".vcount b");
+            const realNum = num.innerText;
+            const count = Number(realNum) +1;
+            num.innerText = `${count}`;
+                   
             createVisit.innerHTML = `
                 <div class="m-3 px-3 pt-3 card">
                     <div class="overflow-auto" style="height:130px;">${ comment }</div>
