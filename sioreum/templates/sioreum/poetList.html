@@ -9,16 +9,16 @@
     <div class="mainban pt-5">
         <a href="/"><img src="static/sioreum/img/mainban.png" alt="banner"  style="width: 100%;"></a>
     </div>
-    <div class="container mt-5 mb-5">
+    <div class="container my-5 box">
         <div class="row justify-content-center">
             {% for poet in poets %}
             <div class="text-center m-2" >
                 <a href="{% url 'poetDetail' pk=poet.pk %}">
                     <div class="rounded img-thumbnail img-fluid float-left text-light p-1 mx-auto" 
                     style="background-image: url('{{ poet.thumbnail.url }}');">
-                        <div class="backgrd " >
-                            <h3 class="pt-5">{{ poet.title }}</h3>
-                            <div class="pt-3">{{ poet.author }}</div>
+                        <div class="backgrd">
+                            <h3 class="pt-4 px-1">{{ poet.title }}</h3>
+                            <div class="pt-2">{{ poet.author }}</div>
                         </div> 
                     </div> 
                 </a>
