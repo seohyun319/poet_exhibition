@@ -7,8 +7,8 @@ class Post(models.Model):
     author = models.CharField(max_length=200, verbose_name="시 쓴 사람")
     title = models.CharField(max_length=200, verbose_name="시 제목")
     text = models.TextField(verbose_name="시 본문")
-    thumbnail = models.ImageField(upload_to='img/thumbnailImages/',blank=True, null=True)
-    backgroundImg = models.ImageField(upload_to='img/Images/',blank=True, null=True)
+    thumbnail = models.ImageField(upload_to='static/sioreum/img/thumbnailImages/',blank=True, null=True)
+    backgroundImg = models.ImageField(upload_to='static/sioreum/img/Images/',blank=True, null=True)
     text_color = models.BooleanField(default=False, verbose_name="글씨 흰색 여부")
     background = models.BooleanField(default=False, verbose_name="검정 배경 적용 여부")
 
