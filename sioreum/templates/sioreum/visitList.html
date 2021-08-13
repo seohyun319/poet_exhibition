@@ -44,35 +44,55 @@
     </div>
 </div>
 
-<div class="row mt-2">
-    <div class="col-12">
-        {% if visits.has_other_pages %}
-        <ul class="pagination justify-content-center">
-            {% if visits.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page=1">&laquo;</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ visits.previous_page_number }}">&lsaquo;</a></li>
-            {% else %}
-            <li class="page-item disabled page-link text-dark"><span>&laquo;</span></li>
-            <li class="page-item disabled page-link text-dark"><span>&lsaquo;</span></li>
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-12">
+            {% if visits.has_other_pages %}
+            <ul class="pagination justify-content-center">
+                {% if visits.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">&laquo;</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ visits.previous_page_number }}">&lsaquo;</a></li>
+                {% else %}
+                <li class="page-item disabled page-link text-dark"><span>&laquo;</span></li>
+                <li class="page-item disabled page-link text-dark"><span>&lsaquo;</span></li>
+                {% endif %}
+                {% for i in page_range %}
+                    {% if visits.number == i %}
+                        <li class="page-item active page-link black bg-blue"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link text-dark" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if visits.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ visits.next_page_number }}">&rsaquo;</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ visits.paginator.num_pages }}">&raquo;</a></li>
+                {% else %}
+                <li class="page-item disabled page-link text-dark"><span>&rsaquo;</span></li>
+                <li class="page-item disabled page-link text-dark"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
             {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% comment %} {% if visits.number|add:'-4' > 1 %}
+                <li class="page-item"><a href="?page={{ visits.number|add:'-5' }}">&hellip;</a></li>
+            {% endif %}
+
             {% for i in visits.paginator.page_range %}
                 {% if visits.number == i %}
                     <li class="page-item active page-link black bg-blue"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                {% else %}
+                {% elif i > visits.number|add:'-5' and i < visits.number|add:'5' %}
                     <li class="page-item"><a class="page-link text-dark" href="?page={{ i }}">{{ i }}</a></li>
                 {% endif %}
             {% endfor %}
-            {% if visits.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ visits.next_page_number }}">&rsaquo;</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ visits.paginator.num_pages }}">&raquo;</a></li>
-            {% else %}
-            <li class="page-item disabled page-link text-dark"><span>&rsaquo;</span></li>
-            <li class="page-item disabled page-link text-dark"><span>&raquo;</span></li>
-            {% endif %}
-        </ul>
-        {% endif %}
-    </div>
-</div>
+
+            {% if visits.paginator.num_pages > visits.number|add:'4' %}
+                <li class="page-item"><a href="?page={{ visits.number|add:'5' }}">&hellip;</a></li>
+            {% endif %} {% endcomment %}
+
 
 <script src="{% static 'sioreum/js/main.js' %}"></script>
 

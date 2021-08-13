@@ -33,7 +33,15 @@ def visitList(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         visits = paginator.page(paginator.num_pages)
-    return render(request, 'sioreum/visitList.html', {'visit_all':visit_all, 'visits':visits})
+    # Get the index of the current page
+    index = visits.number - 1  
+    # This value is maximum index of your pages, so the last page - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 2 if index >= 2 else 0
+    end_index = index + 3 if index <= max_index - 3 else max_index
+    page_range = list(paginator.page_range)[start_index:end_index]
+    ctx = {'visit_all':visit_all, 'visits':visits, 'page_range': page_range}
+    return render(request, 'sioreum/visitList.html', ctx)
 
 @ method_decorator(csrf_exempt)
 def visitCreate(request):
