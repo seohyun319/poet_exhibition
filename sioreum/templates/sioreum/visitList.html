@@ -14,8 +14,11 @@
             <br/>입력하신 전화번호는 관리자 외에 열람 불가하며 굿즈 배송 후 폐기됩니다. 
             </div>
         </div>
-
-        <div class="row justify-content-center vcount"><b>{{visit_all.count}}</b>명이 발자취를 남겼습니다.</div>
+        <div class="row justify-content-center">
+            <div class="mr-5"><a class="hitCounter" target="_blank" title="Hit counter" data-name="ad4d47919ad4bbb772bad43179966164|2|ip|55|rgb(255, 255, 255);|rgb(53, 215, 255);|small|s-hit">Hit Counter</a><script>document.write("<script type='text/javascript' src='https://visitorshitcounter.com/js/hitCounter.js?v="+Date.now()+"'><\/script>");</script>
+            명이 방문했습니다.</div>
+        </div>
+            <div class="vcount text-center"><b>{{visit_all.count}}</b>명이 발자취를 남겼습니다.</div>
 
         <div class="row justify-content-center visitContainer">
             {% if visits.number == 1 %}
