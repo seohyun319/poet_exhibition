@@ -22,7 +22,6 @@ const request = new XMLHttpRequest();
             btn.classList.add('active');
             return true;           
         } if (!textarea.value) {
-            alert("내용을 작성해주세요.")
             btn.classList.remove('active');
             return false;
         } 
@@ -34,7 +33,6 @@ const request = new XMLHttpRequest();
             return true;        
         } if (!namearea.value) {
             btn.classList.remove('active');
-            alert("이름을 작성해주세요.")
             return false;
         }             
     }
