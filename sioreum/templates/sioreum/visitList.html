@@ -76,24 +76,6 @@
     </div>
 </div>
 
-
-{% comment %} {% if visits.number|add:'-4' > 1 %}
-                <li class="page-item"><a href="?page={{ visits.number|add:'-5' }}">&hellip;</a></li>
-            {% endif %}
-
-            {% for i in visits.paginator.page_range %}
-                {% if visits.number == i %}
-                    <li class="page-item active page-link black bg-blue"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                {% elif i > visits.number|add:'-5' and i < visits.number|add:'5' %}
-                    <li class="page-item"><a class="page-link text-dark" href="?page={{ i }}">{{ i }}</a></li>
-                {% endif %}
-            {% endfor %}
-
-            {% if visits.paginator.num_pages > visits.number|add:'4' %}
-                <li class="page-item"><a href="?page={{ visits.number|add:'5' }}">&hellip;</a></li>
-            {% endif %} {% endcomment %}
-
-
 <script src="{% static 'sioreum/js/main.js' %}"></script>
 
 {% endblock %}
