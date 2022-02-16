@@ -1,16 +1,18 @@
-# poet_exhibition : 숙명여자대학교 한국어문학부 시 학회 시오름의 시 전시 페이지 '시화전'
+# poet_exhibition : 숙명여자대학교 한국어문학부 시 학회 '시오름'의 시 전시 페이지 '시화전'
 https://sioreum.ml/
 
 기획, 디자인, 풀스택 개발 전부 혼자 한 개인 프로젝트 <br />
+매년 시를 쓰고 사진 위에 인쇄해 이젤에 전시회를 열었으나 팬데믹 발발 후 오프라인 전시회가 어려워졌고, 그럼에도 불구하고 전시회를 열고 싶은 부학회장으로서 기획하게 됨.<br /> 
 감상 포인트: 시도 직접 써서 의미가 더 큼 <br />
 **Tools** : Python, Django, HTML/CSS/JS, AJAX, Bootstrap(반응형) <br /><br />
 
 ## MAIN PAGE
-![screencapture-sioreum-ml-2022-02-16-14_54_08](https://user-images.githubusercontent.com/76686872/154205597-7a370c34-2647-4ba2-a448-74372d9e70e8.png)
+![screencapture-sioreum-ml-2022-02-16-15_53_03](https://user-images.githubusercontent.com/76686872/154212045-abc08a32-8767-4e2f-a6cd-3353456a0d2b.png)
 
-|클릭 전|클릭 후|
-|:-:|:-:|
-|![image](https://user-images.githubusercontent.com/76686872/154209429-4e6a7751-1ec6-4a45-85ea-49406f358a44.png)|![image](https://user-images.githubusercontent.com/76686872/154209539-86a422a6-6fcb-4802-8a02-248cec8884d6.png)|
+|클릭 전|클릭 후|반응형|
+|:-:|:-:|:-:|
+|![image](https://user-images.githubusercontent.com/76686872/154212201-892d864f-08f4-4ab0-b084-8f6cb344be34.png)|![image](https://user-images.githubusercontent.com/76686872/154209539-86a422a6-6fcb-4802-8a02-248cec8884d6.png)|![image](https://user-images.githubusercontent.com/76686872/154212006-60fe9b1b-a5aa-4a45-b04c-3584e22b23ed.png)|
+
 <br />
 
 ## 공백들 (시 목록 페이지)
